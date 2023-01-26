@@ -14,42 +14,38 @@ const availableWeekDays = [
 ];
 
 export function NewHabitForm() {
-
-
-
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const [weekDays, setWeekDays] = useState<number[]>([]);
 
   function handleToggleWeekday(weekDay: number) {
     if (weekDays.includes(weekDay)) {
-      const weekDaysWithRemovedOne = weekDays.filter(day => day !== weekDay);
+      const weekDaysWithRemovedOne = weekDays.filter((day) => day !== weekDay);
 
       setWeekDays(weekDaysWithRemovedOne);
     } else {
       const weekDaysWithAddedOne = [...weekDays, weekDay];
 
-      setWeekDays(weekDaysWithAddedOne)
+      setWeekDays(weekDaysWithAddedOne);
     }
   }
 
- async function createNewHabit(event: FormEvent) {
+  async function createNewHabit(event: FormEvent) {
     event.preventDefault();
 
-    if(!title || weekDays.length == 0) {
-      return
+    if (!title || weekDays.length == 0) {
+      return;
     }
 
-    await api.post('habits', {
+    await api.post("habits", {
       title,
       weekDays,
-    })
+    });
 
-    setTitle('')
-    setWeekDays([])
+    setTitle("");
+    setWeekDays([]);
 
-    alert('Hábito criado com sucesso')
+    alert("Hábito criado com sucesso");
   }
-
 
   return (
     <form onSubmit={createNewHabit} className="w-full flex flex-col mt-6">
@@ -78,9 +74,11 @@ export function NewHabitForm() {
               key={weekDay}
               className="flex items-center gap-3 group"
               checked={weekDays.includes(index)}
-              onCheckedChange={() => {handleToggleWeekday(index)}}
+              onCheckedChange={() => {
+                handleToggleWeekday(index);
+              }}
             >
-              <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
+              <div className="transition-colors h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
                 <Checkbox.Indicator>
                   <Check size={20} className="text-white" />
                 </Checkbox.Indicator>
@@ -94,7 +92,7 @@ export function NewHabitForm() {
 
       <button
         type="submit"
-        className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500"
+        className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500 transition-colors"
       >
         <Check size={20} weight="bold" />
         Confirmar

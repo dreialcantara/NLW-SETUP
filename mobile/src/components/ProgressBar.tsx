@@ -15,9 +15,16 @@ export function ProgressBar({ progress = 0 }: Props) {
 
   const style = useAnimatedStyle(() => {
     return {
-      width: `${sharedProgress.value}%`
+      width: `${sharedProgress.value}%`,
+      maxWidth: "100%"
+      
+    
     };
+          
   });
+
+  console.log(sharedProgress.value);
+
 
 useEffect(() => {
   sharedProgress.value = withTiming(progress)

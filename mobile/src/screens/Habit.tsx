@@ -119,7 +119,8 @@ export function Habit() {
         </View>
 
         {
-          isDateInPast && (
+           isDateInPast && 
+          (
             <Text className="text-white mt-10 text-center">
               Você não pode editar hábitos de uma data passada.
             </Text>

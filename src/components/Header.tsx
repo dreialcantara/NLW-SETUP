@@ -3,14 +3,15 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 import LogoImage from '../assets/logo.svg'
 import { NewHabitForm } from "./NewHabitForm";
+import { useState } from "react";
 
 export function Header() {
 
+
   return (
     <div className="w-full max-w-3xl mx-auto flex items-center justify-between">
-      {/* <img src={LogoImage} alt="" /> */}
-<div><h1 className="text-5xl font-extrabold">Habits!</h1>
-<h1 className="text-3xl font-extrabold mt-2">App</h1></div>
+       <img src={LogoImage} alt="" /> 
+
       <Dialog.Root>
         <Dialog.Trigger
           type="button"

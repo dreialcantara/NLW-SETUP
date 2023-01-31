@@ -15,6 +15,8 @@ const availableWeekDays = [
 
 export function NewHabitForm() {
 
+  const [showForm, setShowForm] = useState(true);
+
   const [title, setTitle] = useState('')
   const [weekDays, setWeekDays] = useState<number[]>([])
 
@@ -34,6 +36,7 @@ export function NewHabitForm() {
     setWeekDays([])
 
     alert('Hábito criado com sucesso!')
+    setShowForm(false)
   }
 
   function handleToggleWeekDay(weekDay: number) {

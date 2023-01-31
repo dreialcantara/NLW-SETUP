@@ -11,7 +11,8 @@ interface ProgressBarProps {
           aria-valuenow={props.progress}
           className="h-3 rounded-xl bg-violet-600 transition-all"
           style={{
-            width: `${props.progress}%`
+            width: `${props.progress}%`,
+            maxWidth: '100%'
           }}
         />
       </div>

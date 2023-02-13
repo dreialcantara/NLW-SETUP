@@ -5,6 +5,7 @@ Projeto realizado durante a NLW SETUP, semana de imersão da ROCKETSEAT onde des
 ## 🚀 Começando
 
 - Utilize "yarn ou npm install" para instalar as dependencias do projeto.
+- O servidor deve estar online antes de iniciar o projeto.
 - Inicie com "npm run dev" 
 
 ## 🛠️ Construído com
